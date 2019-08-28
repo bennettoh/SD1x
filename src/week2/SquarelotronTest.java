@@ -54,8 +54,8 @@ class SquarelotronTest {
 
     @Test
     void testMainDiagonalFlip2x2() {
-	squarelotron2x2.mainDiagonalFlip(1);
-	assertEquals(4, squarelotron2x2.grid[0][0]);
+	testSquare = squarelotron2x2.mainDiagonalFlip(1);
+	assertEquals(3, testSquare.grid[0][1]);
     }
 
     @Test
@@ -75,8 +75,8 @@ class SquarelotronTest {
 
     @Test
     void testMainDiagonalFlip3x3() {
-	squarelotron3x3.mainDiagonalFlip(1);
-	assertEquals(9, squarelotron3x3.grid[0][0]);
+	testSquare = squarelotron3x3.mainDiagonalFlip(1);
+	assertEquals(7, testSquare.grid[0][2]);
     }
 
     @Test
@@ -95,8 +95,10 @@ class SquarelotronTest {
 
     @Test
     void testMainDiagonalFlip5x5() {
-	squarelotron5x5.mainDiagonalFlip(1);
-	assertEquals(25, squarelotron5x5.grid[0][0]);
+	testSquare = squarelotron5x5.mainDiagonalFlip(1);
+	assertEquals(21, testSquare.grid[0][4]);
+	testSquare = squarelotron5x5.mainDiagonalFlip(2);
+	assertEquals(17, testSquare.grid[1][3]);
     }
 
     @Test

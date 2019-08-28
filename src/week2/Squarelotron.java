@@ -50,8 +50,18 @@ public class Squarelotron {
      * This method performs the Main Diagonal Flip of the squarelotron, as described above, and returns the new squarelotron.
      * The original squarelotron should not be modified (we will check for this).
      */
-    public Squarelotron mainDiagonalFlip(int ring) {
-
+    public Squarelotron mainDiagonalFlip (int ring) {
+	int offset = ring - 1;
+	Squarelotron newSquarelotron = new Squarelotron (size);
+	
+	for (int i = offset; i < size; i++) {
+	    for (int j = offset; j < size; j++) {
+		if (i == offset || i == size - 1 || j == offset || j == size - 1) {
+		    newSquarelotron.grid[i][j] = this.grid[j][i];
+		}
+	    }
+	}
+	return newSquarelotron;
     }
 
     /*
@@ -61,7 +71,20 @@ public class Squarelotron {
      * it does not create a new squarelotron.
      */
     public void rotateRight(int numberOfTurns) {
+	numberOfTurns = ((numberOfTurns % 4) + 4) % 4;
 
+	for (int t = 0; t < numberOfTurns; t++) {
+	    Squarelotron newSquarelotron = new Squarelotron (size);
+	    for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+		    newSquarelotron.grid[i][j] = this.grid[size - 1 - j][i];
+		}
+	    }
+	    System.out.println("Loop: " + (t + 1));
+	    newSquarelotron.printGrid();
+	    this.grid = newSquarelotron.grid;
+	}
+	
     }
 
 
@@ -70,7 +93,7 @@ public class Squarelotron {
 	    for(int j = 0; j < grid[0].length; j++) {
 		System.out.print(grid[i][j] + ", ");
 	    }
-	    System.out.println();
+	    System.out.println(); 
 	}
 	System.out.println();
     }
@@ -78,11 +101,10 @@ public class Squarelotron {
 
 
     public static void main(String[] args) {
-	int size = 2;
+	int size = 5;
 	Squarelotron game = new Squarelotron(size);
-	Squarelotron newSquarelotron = new Squarelotron(size);
 
 	game.printGrid();
-	game.upsideDownFlip(1).printGrid();
+	game.rotateRight(3);
     }
 }
