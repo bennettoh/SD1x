@@ -1,8 +1,8 @@
-package hello;
+package week1;
 
 import java.util.*;
 
-public class HelloWorld {
+public class WhackAMoleGame {
     public static class WhackAMole {
 	int score = 0;
 	int molesLeft;
