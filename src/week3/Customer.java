@@ -1,0 +1,12 @@
+package week3;
+
+public class Customer {
+    String name;
+    int age;
+    
+    public Customer (String name, int age){
+	this.name = name;
+	this.age = age;
+    }
+
+}
