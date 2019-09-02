@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Movie {
     private String name;
     private ArrayList<Actor> actors;
+    private double rating;
     
     public Movie(String name) {
 	this.name = name;
@@ -23,6 +24,15 @@ public class Movie {
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+    
     
     
 
