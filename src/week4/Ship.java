@@ -129,16 +129,14 @@ public abstract class Ship {
      * @param column
      * @return
      */
-    public boolean shootAt(int row, int column) {
-	if(row == bowRow && column == bowColumn) {
-	    
-	    return true;
-	}
-	else {
-	    return false;
-	}
-	
-    }
+//    public boolean shootAt(int row, int column) {
+//	if(row == bowRow && column == bowColumn) {
+//	    return true;
+//	}
+//	else {
+//	    return false;
+//	}
+//    }
 
     /**
      * Return true if every part of the ship has been hit, false otherwise.
@@ -157,7 +155,6 @@ public abstract class Ship {
 	else {
 	    return false;
 	}
-	
     }
 
     /**
@@ -165,12 +162,21 @@ public abstract class Ship {
      * This method should return ”x” if the ship has been sunk, ”S” if it has not been sunk.
      * This method can be used to print out locations in the ocean that have been shot at; it should not be used to print locations that have not been shot at.
      */
-    @Override
-    public String toString() {
+    
+    public String string(int row, int col) {
 	if(isSunk()) {
 	    return " X ";
 	}
-	return " S ";
+	else if(horizontal) {
+	    if(getHit()[col - getBowColumn()]) {
+		return " H ";
+	    }
+	}
+	else if(getHit()[row - getBowRow()]) {
+	    return " H ";
+	}
+
+	return " . ";
     }
 
 }

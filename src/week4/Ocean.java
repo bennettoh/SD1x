@@ -4,7 +4,7 @@ public class Ocean {
     public Ship[][] grid;
     private int shotsFired;
     private int hitCount;
-    private int shipSunk; 
+    private int shipSunk;
     
     public Ocean() {
 	this.grid = new Ship[20][20];
@@ -60,18 +60,23 @@ public class Ocean {
 
     public boolean shootAt(int row, int col) {
 	setShotsFired(getShotsFired() + 1);
-	System.out.println("Shots fired");
 	if(isOccupied(row, col) && !grid[row][col].isSunk()){
+	    boolean tempSink = grid[row][col].isSunk();
 	    if(grid[row][col].getBowRow() == row) {
 		grid[row][col].getHit()[col - grid[row][col].getBowColumn()] = true;
 	    }
 	    else {
 		grid[row][col].getHit()[row - grid[row][col].getBowRow()] = true;
 	    }
+	    if(tempSink != grid[row][col].isSunk()) {
+		setShipSunk(getShipSunk()+1);
+	    }
 	    setHitCount(getHitCount() + 1);
-	    System.out.println("There was a hit");
 	    return true;
 	}else {
+	    boolean[] temp = new boolean[1];
+	    temp[0] = true;
+	    grid[row][col].setHit(temp);
 	    return false;
 	}
     }
@@ -94,7 +99,7 @@ public class Ocean {
 	    }
 
 	    for(int j = 0; j < grid.length; j++) {
-		System.out.print(grid[i][j]);
+		System.out.print(grid[i][j].string(i,j));
 	    }
 	    System.out.println();
 	}

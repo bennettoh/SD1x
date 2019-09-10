@@ -46,12 +46,19 @@ public class BattleshipGame {
 	playingField.print();
 	System.out.println("Shots fired: " + playingField.getShotsFired());
 	System.out.println("Hit count: " + playingField.getHitCount());
+	System.out.println("You sank " + playingField.getShipSunk() + "/13 ships");
 	System.out.print("Enter coordinates (format as y,x): ");
 	Scanner sc = new Scanner(System.in);
-	String token[] = sc.next().split(",");
-	int inputRow = Integer.parseInt(token[0]);
-	int inputCol = Integer.parseInt(token[1]);
-	playingField.shootAt(inputRow, inputCol);
+	try {
+	    String token[] = sc.next().split(",");
+	    int inputRow = Integer.parseInt(token[0]);
+	    int inputCol = Integer.parseInt(token[1]);
+	    playingField.shootAt(inputRow, inputCol);
 	}
+	catch (Exception e) {
+	    System.out.println("Invalid input");
+	}
+	}
+	System.out.println("Game Over");
     }
 }
