@@ -13,7 +13,7 @@ Practice test driven development and dealing with 2-dimensional arrays or matric
 * [Homework Assignment 3: Movie Database](https://courses.edx.org/courses/course-v1:PennX+SD1x+2T2017/courseware/fdab6783c1f44d0f8d5ed1904d3035b8/bcc139ca21134a128f0a76d6289362cb/?activate_block_id=block-v1%3APennX%2BSD1x%2B2T2017%2Btype%40sequential%2Bblock%40bcc139ca21134a128f0a76d6289362cb)  
 Simulate the idea of a movie database. 
 
-<div align="left">
+<div align="center">
 	<img width="30%" height="30%" src="https://media.giphy.com/media/jpQkuoHi7JZY14yIZf/giphy.gif" alt="HW3">
 </div>
 
